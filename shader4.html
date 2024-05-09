@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KacperT">
+    <meta name="description" content="Main">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shaders2.css">
+    <title>SHADER 4</title>
+</head>
+<body>
+
+<main>
+<div class="p1">
+    <img src="images/SH_4.gif" class="pres">
+    <aside class="float1">
+        <p>#version 300 es<br>
+precision highp float;</p>
+<br>
+<p>in vec2 UV;<br>
+uniform vec2 mouse;<br>
+out vec4 out_color;<br>
+uniform float ratio, time;</p>
+<br>
+<p>#define p2a(p) vec2(atan(p.y, p.x), length(p))<br>
+#define a2p(p) vec2(p.y*cos(p.x), p.y*sin(p.x))<br>
+#define _c(c) clamp(c, 0.0, 1.0)</p>
+<br>
+<p>vec4 rice_layer(vec2 p, float sinoffset){<br>
+	vec4 col = vec4(0.0);<br>
+    float f = 0.0;</p>
+    <br>
+<p>vec2 op = p; // Original p<br>
+    p = mod(p,0.1)-0.05;</p>
+    <br>
+<p>p = p2a(p);<br>
+    p.x += 0.7 * cos(op.x * 4.0 + time * 6.2832 + sinoffset);<br>
+    p.x += 0.7 * cos(op.y * 4.0 + time * 6.2832 + sinoffset);<br>
+    p = a2p(p);</p>
+    <br>
+<p>p.x += 0.1 * op.y;</p>
+<br>
+<p>f = 1.0 - (length(p * vec2(1.0,0.2))-0.004)/0.002;</p>
+<br><br>
+    
+<p>col.rgb += f;</p>
+<br>
+<p>return col;<br>
+}</p>
+<br>
+<p>void main(void){<br>
+	float x = UV.x * ratio;<br>
+	float y = UV.y;</p>
+    <br>
+<p>// Position of current point<br>
+	vec2 p = vec2(x, y) - vec2(0.5 * ratio);</p>
+    <br>
+<p>vec4 col = vec4(0.0);</p>
+<br>
+<p>col = _c(rice_layer(p, 0.2));</p>
+<br>
+<p>col.a = 1.0;</p>
+<br>
+<p>out_color = col;
+}</p>
+           
+        </aside></div>
+
+</main>
+
+
+<footer>
+Kacper Trzop 2024
+</footer>
+
+
+</body>
+</html>

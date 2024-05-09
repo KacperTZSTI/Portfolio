@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KacperT">
+    <meta name="description" content="Main">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shaders2.css">
+    <title>SHADER 1</title>
+</head>
+<body>
+
+<main>
+<div class="p1">
+    <img src="images/SH_1.gif" class="pres">
+    <aside class="float1">
+        <p>#version 300 es<br>
+        precision highp float;</p>
+        <br>
+        <p>in vec2 UV;<br>
+        uniform vec2 mouse;<br>
+        out vec4 out_color;<br>
+        uniform float ratio, time;</p>
+        <br>
+        <p>void main(void){<br>
+            float x = UV.x * ratio;<br>
+            float y = UV.y;</p>
+        <br>
+            <p>float quant = 1.0;<br>
+            float quant_pixel_size = 0.003;<br>
+            float quant_grid_size = 1.8; // 3x3 grid;<br>
+            float quant_variance = 140.0;</p>
+            <br>
+            <p>// Position of current point<br>
+            vec2 p = vec2(x, y) - vec2(0.5 * ratio, 0.5);<br>
+            p = floor(p / quant_pixel_size) * quant_pixel_size;<br>
+            vec4 col = vec4(0.0);</p>
+            <br><br>
+        
+            <p>vec2 center = vec2(0.0);<br>
+            // Main drawing / moving stairs pattern <br>
+            float f = mod(1.0 - p.y + time * 0.3, 0.3) * pow((p.y + 1.0), 2.0) * 1.6;</p>
+            <br>
+        <p>col.rgb += f * 3.0;<br>
+            vec2 quant_position = mod(p, quant_pixel_size * quant_grid_size); <br>
+            float quant_offset = (quant_position.x + quant_grid_size * quant_position.y);<br>
+            col = floor(col * quant + quant_offset * quant_variance) / quant;</p>
+            <br>
+        <p>col.rgb = vec3(1.0) - col.rgb;<br>
+            col.b *= 0.1;<br>
+            col.g *= 0.4;</p>
+            <br>
+        <p>col.rgb = clamp(col.rgb, 0.0, 1.0);</p>
+        <br>
+    <p>if (cos(p.x * 60.0) + cos(p.x * 3.5) < 0.0) {<br>
+                if (p.y > cos(p.x * 10.0) * 0.4 + 0.1) {<br>
+                    col.rgb *= 0.0;<br>
+                }<br>
+            }</p>
+            <br>
+        <p>col.a = 1.0;</p>
+        <br>
+    <p>out_color = col;
+        }}</p></aside></div>
+
+</main>
+
+
+<footer>
+Kacper Trzop 2024
+</footer>
+
+
+</body>
+</html>

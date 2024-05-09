@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KacperT">
+    <meta name="description" content="Main">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shaders2.css">
+    <title>SHADER 3</title>
+</head>
+<body>
+
+<main>
+<div class="p1">
+    <img src="images/SH_3.gif" class="pres">
+    <aside class="float1">
+        <p>#version 300 es<br>
+        precision highp float;</p>
+        <br>
+        <p>in vec2 UV;<br>
+        uniform vec2 mouse;<br>
+        out vec4 out_color;<br>
+        uniform float ratio, time;</p>
+        <br>
+        <p>const float PI = 3.14159264;</p><br>
+
+            <p>void main(void){<br>
+                float x = UV.x * ratio;<br>
+                float y = UV.y;    <br>
+                  // Position of current point<br>
+                vec2 p = vec2(x, y) - vec2(0.5 * ratio, 0.5);<br>
+                vec3 color = vec3(0.0);<br>
+                vec2 center = vec2(0.0);<br>
+                float d = distance(p, center);</p><br>
+                
+                <p>float phase = atan(p.x, p.y) + (d + time / PI) * 100.0;<br>
+                float a = sin(phase);</p><br>
+                
+                <p>float amp = smoothstep(0.45, 0.55, 0.5 + 0.5 * a);</p><br>
+                
+                <p>color = mix(vec3(1.0,0.1,0.1), vec3(0.1,0.1,1.0), d * 1.42) * amp;<br>
+                if (d < 0.015) {<br>
+                    color = vec3(1.0,0.0,0.0);<br>
+                }</p>
+                <br>
+                <p>color = pow(color, vec3(0.4545));</p>
+            <p>out_color = vec4(color, 1.0);</p>
+            }
+            
+           
+        </aside></div>
+
+</main>
+
+
+<footer>
+Kacper Trzop 2024
+</footer>
+
+
+</body>
+</html>

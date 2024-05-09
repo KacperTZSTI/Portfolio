@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KacperT">
+    <meta name="description" content="Main">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shaders2.css">
+    <title>SHADER 11</title>
+</head>
+<body>
+
+<main>
+<div class="p1">
+    <img src="images/SH_11.gif" class="pres">
+    <aside class="float1">
+        <p>#version 300 es<br>
+precision highp float;</p>
+<br>
+<p>in vec2 UV;<br>
+uniform vec2 mouse;<br>
+out vec4 out_color;<br>
+uniform float ratio, time;</p>
+<br>
+<p>void main(void){<br>
+	float x = UV.x * ratio;<br>
+	float y = UV.y;</p>
+    <br>
+<p>// Position of current point<br>
+	vec2 p = vec2(x, y) - vec2(0.5 * ratio, 0.5);</p>
+    <br>
+<p>vec4 col = vec4(0.0);</p>
+<br>
+<p>float s = 0.0;</p>
+<br>
+    
+<p>vec2 oldp = p;</p>
+<br>
+<p>#define tweakp \<br>
+      p.x += 0.03 * cos(floor(p.x * 10.0 + p.y * 20.0)); \<br>
+      p.y += 0.03 * cos(floor(p.x * 10.0 + p.y * 22.0));</p>
+      <br>
+
+    <p>p.y -= 0.2 * p.x;<br>
+    tweakp<br>
+    p.x += time * 0.1;<br>
+    p = fract(p * 109.0)/10.0;</p>
+    <br>
+<p>#define c(x) clamp(x,0.0,1.0)<br>
+    #define _square(p, s, z) 1.0 - (max(abs(p.x),abs(p.y)) - s) / z<br>
+    #define square(p,s,z) c(_square(p,s,z))</p>
+    <br>
+<p>#define squares(p,c) \<br>
+      col += c.a * c * (square(p, 0.006, 0.002) + \<br>
+      square((p * vec2(1.0,5.0)), 0.006, 0.03) * 0.5)</p>
+      <br>
+    <p>squares(p,vec4(0.2,0.3,0.7,1.0));</p>
+    <br>
+<p>p = vec2(oldp.y, oldp.x);<br>
+    tweakp<br>
+    p.x += time * 0.2;<br>
+    p = fract(p * 20.0)/16.0;</p>
+    <br>
+<p>p.x += 0.1 * p.y;<br>
+    squares(p,vec4(0.3,0.6,0.8,0.5));</p>
+    <br>
+<p>col.a = 1.0;</p>
+<br>    
+<p>out_color = col;
+}</p></aside></div>
+
+</main>
+
+
+<footer>
+Kacper Trzop 2024
+</footer>
+
+
+</body>
+</html>

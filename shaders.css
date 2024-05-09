@@ -1,0 +1,130 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-image: url('images/SH_1 BLUR.gif');
+  background-size: cover;
+  overflow-y: hidden;
+}
+
+#carousel{
+    display: flex;
+    height: 800px;
+    align-items: center;
+    justify-content: space-around;
+    width: 1100%;
+  }
+  
+  .sh{
+    width: 350px;
+    height: 350px;
+    background-color: #303030;
+    box-shadow: 20px 20px 80px black;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .sh:hover {
+    scale: 103%;
+    box-shadow: 30px 30px 70px rgba(0, 0, 0, 0.473);
+    }
+
+  #scroll{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  #slide{
+    margin: auto;
+  }
+
+  #controls{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    margin: auto;
+    top: -120px;
+    position: relative;
+  }
+
+
+.cont:hover {
+  cursor: pointer;
+}
+
+  .cont > img{
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+  }
+
+  /*  
+  
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  */
+
+  #sh1{
+    background-image: url('images/SH_1.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh2{
+    background-image: url('images/SH_2.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh3{
+    background-image: url('images/SH_3.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh4{
+    background-image: url('images/SH_4.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh5{
+    background-image: url('images/SH_5.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh6{
+    background-image: url('images/SH_6.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh7{
+    background-image: url('images/SH_7.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh8{
+    background-image: url('images/SH_8.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh9{
+    background-image: url('images/SH_9.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh10{
+    background-image: url('images/SH_10.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  #sh11{
+    background-image: url('images/SH_11.gif');
+    background-size: cover;
+    overflow-y: hidden;
+  }

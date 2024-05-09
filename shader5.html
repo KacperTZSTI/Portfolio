@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KacperT">
+    <meta name="description" content="Main">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shaders2.css">
+    <title>SHADER 5</title>
+</head>
+<body>
+
+<main>
+<div class="p1">
+    <img src="images/SH_5.gif" class="pres">
+    <aside class="float1">
+        <p>#version 300 es<br>
+        precision highp float;</p>
+        <br>
+    <p>in vec2 UV;<br>
+        uniform vec2 mouse;<br>
+        out vec4 out_color;<br>
+        uniform float ratio, time;</p>
+        <br>
+    <p>void main(void){<br>
+            float x = UV.x * ratio;<br>
+            float y = UV.y;</p>
+            <br>
+        <p>// Position of current point<br>
+            vec2 p = vec2(x, y) - vec2(0.5 * ratio, 0.5);</p>
+            <br>
+        <p>vec4 col = vec4(0.0);</p>
+        <br>
+    <p>float t = 0.0;</p>
+    <br>
+<p>t += (length(p)-0.1)/0.4;<br>
+            t = 1.0-t*clamp(cos(t*30.0 + time * 6.2832),0.0,1.0) * (1.0-t);<br>
+            t = 1.0 - t;<br>
+            t *= 15.0;</p>
+            <br>
+        <p>col.r += t * cos(p.y * 60.0+ time * 6.2832 + 0.4);<br>
+            col.g += t * cos(p.y * 61.1 + time * 6.2832 + 0.6);<br>
+            col.b += t * cos(p.y * 63.0 + time * 6.2832 + 0.9);</p>
+            <br>
+        <p>float s = 0.0;<br>
+            col.r += s;</p>
+            <br>
+        <p>col.b += 0.2;<br>
+            col.rgb += 0.25 * cos(p.x * 1.0);</p>
+            <br>
+        <p>col.a = 1.0;</p>
+        <br>
+    <p>out_color = col;<br>
+        }</p>
+        
+        
+           
+        </aside></div>
+
+</main>
+
+
+<footer>
+Kacper Trzop 2024
+</footer>
+
+
+</body>
+</html>

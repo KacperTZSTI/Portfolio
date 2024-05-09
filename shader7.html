@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KacperT">
+    <meta name="description" content="Main">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shaders2.css">
+    <title>SHADER 7</title>
+</head>
+<body>
+
+<main>
+<div class="p1">
+    <img src="images/SH_7.gif" class="pres">
+    <aside class="float1">
+        <p>#version 300 es<br>
+precision highp float;</p>
+<br>
+<p>in vec2 UV;<br>
+uniform vec2 mouse;<br>
+out vec4 out_color;<br>
+uniform float ratio, time;</p>
+<br>
+<p>void main(void){<br>
+	float x = UV.x * ratio;<br>
+	float y = UV.y;</p>
+    <br>
+<p>// Position of current point<br>
+	vec2 p = vec2(x, y) - vec2(0.45 * ratio, 0.46);</p>
+    <br>
+<p>vec4 col = vec4(0.0);</p>
+<br>
+<p>vec2 center = vec2(0.0);</p>
+<br>
+<p>// Distance of current point to center of circle<br>
+	float d = distance(p, center);<br>
+    #define _s(x,f) clamp((x) / f, 0.0, 1.0)<br>
+    d = cos(d * 100.0);<br>
+    d += atan(p.y, p.x + 0.6) * (4.0 + cos(time * 6.2832 + p.x * 10.0));<br>
+    float f = _s(d - 0.3, 0.5);</p>
+    <br>
+<p>col.r += f;<br>
+    col.g += f * 0.1;<br>
+    col.b += f * 0.3;<br>
+    col.r += 0.1;<br>
+    col.g += 0.0;<br>
+    col.b += 0.0;</p><br>
+    
+    float stars = 0.0;<br>
+    vec2 _p = p;<br>
+    p = fract(p * 30.0)/30.0 - 0.01;<br>
+    p += 0.006 * cos(length(_p) * 80.0 + p * 10.0 + _p.x * 10.0 + time * 6.3);<br>
+    stars = 0.93 - _s(length(p) - 0.001, 0.002);<br>
+    col.rgb += stars;</p>
+    <br>
+    p = _p;<br>
+    float neon = 0.0;<br>
+    neon += _s(length(p) - 0.355, 0.01);<br>
+    neon *= 1.0 - _s(length(p) - 0.36, 0.01);<br>
+    col.r += neon * cos(atan(p.y, p.x) * 20.1 + time * 6.3832);<br>
+	col.g += neon * cos(atan(p.y, p.x) * 30.2 + time * 6.3832);<br>
+	col.b += neon * cos(atan(p.y, p.x) * 40.3 + time * 6.3832);<br>
+    col.a = 1.0;</p>
+
+<p>out_color = col;<br>
+}</p></aside></div>
+
+</main>
+
+
+<footer>
+Kacper Trzop 2024
+</footer>
+
+
+</body>
+</html>

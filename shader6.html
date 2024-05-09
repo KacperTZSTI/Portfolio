@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KacperT">
+    <meta name="description" content="Main">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shaders2.css">
+    <title>SHADER 6</title>
+</head>
+<body>
+
+<main>
+<div class="p1">
+    <img src="images/SH_6.gif" class="pres">
+    <aside class="float1">
+        <p>function setup() {<br>
+            createCanvas(540, 540);<br>
+        }</p>
+        <br>
+    <p>function draw() {<br>
+            background(167,255);<br>
+            var millisecond = millis();<br>
+            var t = (millisecond % 1000) / 1000;<br>
+            let size = 200 + 30 * Math.cos(millisecond / 1000 * 3.1416 * 2);<br>
+            fill(0,255);<br>
+            stroke(0,0);</p>
+            <br><br>
+            
+        <p>translate(10,10);</p>
+        <br>
+    <p>for(let i = 0; i < 5; i++){<br>
+                push();<br>
+                for(let j = 0; j < 103; j++){<br>
+                    translate(0,5);<br>
+                    fill(0,255);<br>
+                    var f1 = 90 * Math.cos(j/258 * 7.0 + t * TWO_PI + i);<br>
+                    rect(f1 * 0.4,0,f1,0.6);<br>
+                    fill(0,75);<br>
+                    var f2 = 60 * Math.cos(j/258 * 6.0 + 0.8 + t * TWO_PI + i);<br>
+                    rect(f2 * 0.31,0,f2,8.0);<br>
+                }<br>
+                pop();<br>
+                translate(105,0);<br>
+            }<br>
+        }</p></aside></div>
+
+</main>
+
+
+<footer>
+Kacper Trzop 2024
+</footer>
+
+
+</body>
+</html>
