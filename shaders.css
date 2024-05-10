@@ -3,6 +3,7 @@ body {
   background-image: url('images/SH_1 BLUR.gif');
   background-size: cover;
   overflow-y: hidden;
+  background-color: black;
 }
 
 #carousel{
