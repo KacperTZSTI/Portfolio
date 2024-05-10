@@ -9,15 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="shaders2.css">
-    <title>SHADER 5</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../shaders2.css">
+    <title>SHADER 8</title>
 </head>
 <body>
 
 <main>
 <div class="p1">
-    <img src="images/SH_5.gif" class="pres">
+    <img src="../images/SH_8.gif" class="pres">
     <aside class="float1">
         <p>#version 300 es<br>
         precision highp float;</p>
@@ -36,30 +36,25 @@
             <br>
         <p>vec4 col = vec4(0.0);</p>
         <br>
-    <p>float t = 0.0;</p>
+    <p>vec2 center = vec2(0.0);</p>
     <br>
-<p>t += (length(p)-0.1)/0.4;<br>
-            t = 1.0-t*clamp(cos(t*30.0 + time * 6.2832),0.0,1.0) * (1.0-t);<br>
-            t = 1.0 - t;<br>
-            t *= 15.0;</p>
+<p>vec2 z = vec2(p.x, p.y) * 10.1;</p>
+<br>
+<p>for(int i = 0; i < 10; i++){<br>
+                z.x += 1.1 * cos(z.x * 2.0 + z.y * 4.0 + time * 6.3);<br>
+                z.y += 0.4 * sin(z.x * 2.0 + z.y * 2.2 - time * 6.3);<br>
+            }</p>
             <br>
-        <p>col.r += t * cos(p.y * 60.0+ time * 6.2832 + 0.4);<br>
-            col.g += t * cos(p.y * 61.1 + time * 6.2832 + 0.6);<br>
-            col.b += t * cos(p.y * 63.0 + time * 6.2832 + 0.9);</p>
+        <p>col.r += length(z)/5.0;<br>
+            col.g += length(z.x)/5.0;<br>
+            col.b += length(z.y)/5.0;</p>
             <br>
-        <p>float s = 0.0;<br>
-            col.r += s;</p>
-            <br>
-        <p>col.b += 0.2;<br>
-            col.rgb += 0.25 * cos(p.x * 1.0);</p>
-            <br>
-        <p>col.a = 1.0;</p>
+        <p>col = floor(col * 2.0)/2.0;</p>
         <br>
-    <p>out_color = col;<br>
+    <p>col.a = 1.0;</p>
+    <br>
+<p>out_color = col;
         }</p>
-        
-        
-           
         </aside></div>
 
 </main>

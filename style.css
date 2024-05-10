@@ -27,6 +27,16 @@ a {
     color: rgba(219, 196, 63, 0.973);
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: rgb(223, 201, 79);
+  background: rgb(179, 125, 26);
+}
+
+::selection {
+  color: rgb(247, 219, 65);
+  background: rgb(179, 125, 26);
+}
+
 #title {
 margin-left: 40px;
 position: relative;
@@ -47,7 +57,7 @@ header > video {
   min-width: 100%;
   min-height: 100%;
   object-fit: cover;
-  -webkit-filter: blur(6px);
+  filter: blur(6px);
   z-index: -2;
 }
 
@@ -356,10 +366,6 @@ h2 {
     align-items: center;
   }
   
-  .p2 > a > div{
-
-  }
-  
   .p2 > aside{
     width: 340px;
   }
@@ -380,6 +386,7 @@ h2 {
     width: 100%;
     justify-content: center;
     align-items: center;
+    top: -2px;
   }
   #menu-toggle ~ .menu li {
     height: 0;
