@@ -247,7 +247,7 @@ h2 {
   text-align: center;
 }
 
-.top-nav {
+nav {
   display: flex;
   flex-direction: row;
   align-items: center;
