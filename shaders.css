@@ -132,6 +132,6 @@ body {
 
   @media (max-height: 800px) {
     #carousel{
-      height: 700px;
+      margin-top: -140px;
     }
   }
