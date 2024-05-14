@@ -57,7 +57,8 @@ header > video {
   min-width: 100%;
   min-height: 100%;
   object-fit: cover;
-  filter: blur(6px);
+  /* filter: blur(6px) brightness(50%); */
+  filter: brightness(50%);
   z-index: -2;
 }
 
