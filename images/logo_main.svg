@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="logo_main.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="logo_main.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.73851712"
+     inkscape:cx="358.82716"
+     inkscape:cy="700.05148"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#7e7ee9;fill-opacity:1;stroke-width:179.754;stroke-linecap:round;paint-order:fill markers stroke;stop-color:#000000"
+       d="m 48.723761,132.16018 c 0,0 67.512209,-20.24734 70.789509,-84.152942 -3.93275,87.949302 44.57117,105.982082 44.57117,105.982082 0,0 -64.890377,30.68734 -73.41134,80.67293 C 98.53861,184.67666 48.723761,132.16018 48.723761,132.16018 Z"
+       id="path238" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke-width:76.5896;stroke-linecap:round;paint-order:fill markers stroke;stop-color:#000000"
+       d="m 80.350919,140.55202 c 0,0 28.978681,-7.88159 31.077451,-35.06537 -2.64239,37.4177 17.81894,45.63199 17.81894,45.63199 0,0 -27.97678,12.35723 -32.155921,33.55427 3.899971,-21.20425 -16.74047,-44.12089 -16.74047,-44.12089 z"
+       id="path238-5" />
+  </g>
+</svg>
