@@ -1,4 +1,8 @@
 
+main{
+  min-height: 1000px;
+}
+
 .pres{
     box-shadow: 20px 20px 80px black;
   }
@@ -30,7 +34,6 @@
   @media (max-width: 1400px) {
     .p1{
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       width: 100%;
     }
@@ -40,7 +43,13 @@
     }
 
     .p1 > aside{
-      align-self: center;
+      width: 490px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+
+    .p1 > aside{
       width: 490px;
       margin-left: -3px;
     }

@@ -7,7 +7,9 @@ const prev = document.getElementById("prev");
 let width = document.getElementById("scroll").style.width
 let i = 0;
 let g = 0;
+document.getElementById("scroll").scrollLeft = i * window.innerWidth;
 console.log(i);
+console.log(g);
 next.onclick = () => {
   if(i == 10){
     i = 0
@@ -15,6 +17,7 @@ next.onclick = () => {
     i+=1;
   }
   console.log(i);
+  console.log(g);
 
   document.getElementById("scroll").scrollLeft = i * window.innerWidth;
   console.log("feasuhwrequig G GWR EYUIIH");
@@ -29,6 +32,7 @@ prev.onclick = () => {
     i-=1;
   }
   console.log(i);
+  console.log(g);
   document.getElementById("scroll").scrollLeft = i * window.innerWidth;
   g = i + 1;
   body.style.backgroundImage = "url('images/SH_" + g + " BLUR.gif')"
