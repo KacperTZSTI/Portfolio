@@ -3,6 +3,7 @@ let body = document.querySelector('body');
 
 
 const next = document.getElementById("next");
+const pause = document.getElementById("pause");
 const prev = document.getElementById("prev");
 let width = document.getElementById("scroll").style.width
 let i = 0;
@@ -38,4 +39,11 @@ prev.onclick = () => {
   body.style.backgroundImage = "url('images/SH_" + g + " BLUR.gif')"
   };
   
+  pause.onclick = () => {
+    i = 0;
+    document.getElementById("scroll").scrollLeft = i * window.innerWidth;
+    g = i + 1;
+    body.style.backgroundImage = "url('images/SH_" + g + " BLUR.gif')"
+    };
+    
 
