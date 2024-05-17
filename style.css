@@ -48,6 +48,7 @@ header {
     display: flex;
     align-items: center;
     position: relative;
+    background-color: #222;
 }
 
 header > video {
