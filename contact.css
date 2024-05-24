@@ -37,10 +37,10 @@ aside{
     height: 60px;
     margin-bottom: 10px;
     margin-top: 10px;
-    padding: 0.5rem;  border: 3px solid rgba(175, 156, 50, 0.616);
+    padding: 0.5rem;  border: 3px solid rgba(175, 156, 50, 0.788);
     border-radius: 10px;
-    background-color: #9e9e9e28;
-    box-shadow: 0 0 0 4px #9e9e9e28;
+    background-color: #9e9e9e42;
+    box-shadow: 0 0 0 4px #9e9e9e48;
     font-size: large;
   }
   
